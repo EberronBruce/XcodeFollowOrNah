@@ -41,7 +41,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YAb-mh-mgO"/>
                     <connections>
-                        <segue destination="Ds0-YT-fe9" kind="show" identifier="chooseAccountSegue" id="PZB-Oc-BEI"/>
+                        <segue destination="Ds0-YT-fe9" kind="presentation" identifier="chooseAccountSegue" id="PZB-Oc-BEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -68,11 +68,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="gFx-lt-oJC" firstAttribute="top" secondItem="OeZ-sN-Ntb" secondAttribute="bottom" id="AUf-VT-3Ho"/>
-                            <constraint firstItem="OeZ-sN-Ntb" firstAttribute="top" secondItem="OJU-48-t7B" secondAttribute="bottom" constant="-44" id="RLi-sb-KqA"/>
+                            <constraint firstItem="OeZ-sN-Ntb" firstAttribute="top" secondItem="OJU-48-t7B" secondAttribute="bottom" id="RLi-sb-KqA"/>
                             <constraint firstAttribute="trailing" secondItem="OeZ-sN-Ntb" secondAttribute="trailing" id="kKz-G2-lem"/>
                             <constraint firstItem="OeZ-sN-Ntb" firstAttribute="leading" secondItem="Jx8-Bo-KkG" secondAttribute="leading" id="yen-6M-t6v"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="OeZ-sN-Ntb" id="usu-eF-0VG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVl-zr-0Tv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
