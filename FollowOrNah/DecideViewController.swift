@@ -32,24 +32,61 @@ class DecideViewController: UIViewController {
     }
     
     func showTopUser() {
-        let user = self.twitterUsers.first!
-        self.usernameLabel.text = user.name
-        
-        //This takes the image url and gets the image and saves it
-        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: user.imageUrl)!) { (data :NSData?, response :NSURLResponse?, error :NSError?) -> Void in
-            //Deals with the thread
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                let image = UIImage(data: data!)
-                self.imageView.image = image
-            })
-        }.resume()
+        if self.twitterUsers.count >= 0 {
+            let user = self.twitterUsers.first!
+            self.usernameLabel.text = user.name
+            
+            //This takes the image url and gets the image and saves it
+            NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: user.imageUrl)!) { (data :NSData?, res :NSURLResponse?, error :NSError?) -> Void in
+                //Deals with the thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let image = UIImage(data: data!)
+                    self.imageView.image = image
+                })
+                }.resume()
+        }
         
     }
     
     @IBAction func unfollowTapped(sender: AnyObject) {
+        
+        let user = self.twitterUsers.first!
+        
+        //stores the URL for the verify account provided by Twiiter - https://dev.twitter.com/rest/reference/get/account/verify_credentials
+        let verifyAccountURL = NSURL(string: "https://api.twitter.com/1.1/friendships/destroy.json")
+        //Create a request constant for the twitter api
+        let verifyAccountRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.POST, URL: verifyAccountURL, parameters: ["user_id": "\(user.userId)"])
+        //set the requested account to the selected acount
+        verifyAccountRequest.account = self.account!
+        //Make the API call to Twitter
+        verifyAccountRequest.performRequestWithHandler { (data :NSData!, response :NSHTTPURLResponse!, error :NSError!) -> Void in
+            //If no error do this
+            if error == nil {
+                print("Roll Tide in Following")
+                //Can throw an error
+                do {
+                    //Get the JSON information from the API and Store it in a dictonary
+                    let responseJSONDictonary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as! [String : AnyObject]
+                    print(responseJSONDictonary)
+                    
+                    
+                    
+                    
+                } catch {
+                    
+                }
+            }
+            
+        }
+        self.twitterUsers.removeAtIndex(0)
+        showTopUser()
+
+
     }
     
     @IBAction func keepFollowingTapped(sender: AnyObject) {
+            self.twitterUsers.removeAtIndex(0)
+            showTopUser()
     }
     
     //function used to get the Twitter Following accoung
@@ -106,7 +143,9 @@ class DecideViewController: UIViewController {
                     let responseJSONDictonary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as! [String : AnyObject]
                     //print(responseJSONDictonary)
                     let theIds = responseJSONDictonary["ids"] as! [Int]
+                   
                     self.getHydratedUsers(theIds)
+
 
                     
                 } catch {
@@ -161,6 +200,7 @@ class DecideViewController: UIViewController {
                         let twitterUser = TwitterUser()
                         twitterUser.name = userDictonary["name"] as! String
                         twitterUser.imageUrl = userDictonary["profile_image_url_https"] as! String
+                        twitterUser.userId = userDictonary["id"] as! Int
                         self.twitterUsers.append(twitterUser)
                         
                     }
