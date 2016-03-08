@@ -42,6 +42,7 @@
                     <navigationItem key="navigationItem" id="YAb-mh-mgO"/>
                     <connections>
                         <segue destination="Ds0-YT-fe9" kind="presentation" identifier="chooseAccountSegue" id="PZB-Oc-BEI"/>
+                        <segue destination="3zb-IU-Rw0" kind="show" identifier="decideSeque" id="nMg-85-iK6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -79,7 +80,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVl-zr-0Tv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776" y="265"/>
+            <point key="canvasLocation" x="1828" y="-309"/>
+        </scene>
+        <!--Decide View Controller-->
+        <scene sceneID="ibM-al-hb8">
+            <objects>
+                <viewController id="3zb-IU-Rw0" customClass="DecideViewController" customModule="FollowOrNah" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q0m-eo-xmX"/>
+                        <viewControllerLayoutGuide type="bottom" id="vUU-Ov-79b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CMu-IK-cqc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are following 300 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-ur-iZN">
+                                <rect key="frame" x="99" y="67" width="222" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlc-MA-XlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1828" y="421"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IUo-0z-Udy">
