@@ -16,6 +16,7 @@ class DecideViewController: UIViewController {
     @IBOutlet weak var friendLabel: UILabel!
     //account property that is selected by the user
     var account : ACAccount?
+    var twitterUsers  = [TwitterUser]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,10 +130,17 @@ class DecideViewController: UIViewController {
                 do {
                     //Get the JSON information from the API and Store it in a dictonary
                     let responseJSONArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as! [AnyObject]
-                    print(responseJSONArray)
+                   // print(responseJSONArray)
+                    for user in responseJSONArray {
+                        let userDictonary = user as! [String : AnyObject]
+                        let twitterUser = TwitterUser()
+                        twitterUser.name = userDictonary["name"] as! String
+                        twitterUser.imageUrl = userDictonary["profile_image_url"] as! String
+                        self.twitterUsers.append(twitterUser)
+                        
+                    }
                     
-                    
-                    
+
                 } catch {
                     
                 }

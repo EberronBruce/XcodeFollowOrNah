@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sign In View Controller-->
@@ -100,11 +101,40 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltt-4r-6Gf">
+                                <rect key="frame" x="261" y="225" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JLm-ZA-GHK">
+                                <rect key="frame" x="200" y="254" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="49V-73-RX1"/>
+                                    <constraint firstAttribute="height" constant="200" id="qB9-Qx-MsT"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-jT-a8H">
+                                <rect key="frame" x="70" y="459" width="60" height="30"/>
+                                <state key="normal" title="Unfollow"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-gR-2QU">
+                                <rect key="frame" x="426" y="459" width="104" height="30"/>
+                                <state key="normal" title="Keep Following"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="JLm-ZA-GHK" firstAttribute="top" secondItem="ltt-4r-6Gf" secondAttribute="bottom" constant="8" id="KZT-VE-heE"/>
+                            <constraint firstItem="ltt-4r-6Gf" firstAttribute="centerX" secondItem="CMu-IK-cqc" secondAttribute="centerX" id="RLz-DA-wNi"/>
                             <constraint firstItem="FH8-ur-iZN" firstAttribute="centerX" secondItem="CMu-IK-cqc" secondAttribute="centerX" id="T6N-ql-Jzg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jsd-gR-2QU" secondAttribute="trailing" constant="50" id="XlX-pC-xgU"/>
+                            <constraint firstItem="efQ-jT-a8H" firstAttribute="leading" secondItem="CMu-IK-cqc" secondAttribute="leadingMargin" constant="50" id="byw-ha-13I"/>
+                            <constraint firstItem="Jsd-gR-2QU" firstAttribute="top" secondItem="Q0m-eo-xmX" secondAttribute="bottom" constant="395" id="fSj-9w-85u"/>
                             <constraint firstItem="FH8-ur-iZN" firstAttribute="top" secondItem="Q0m-eo-xmX" secondAttribute="bottom" constant="100" id="fWJ-Gu-gQ3"/>
+                            <constraint firstItem="efQ-jT-a8H" firstAttribute="top" secondItem="Q0m-eo-xmX" secondAttribute="bottom" constant="395" id="xJC-05-ivO"/>
+                            <constraint firstItem="ltt-4r-6Gf" firstAttribute="top" secondItem="FH8-ur-iZN" secondAttribute="bottom" constant="40" id="yHK-BB-Tl2"/>
+                            <constraint firstItem="JLm-ZA-GHK" firstAttribute="centerX" secondItem="CMu-IK-cqc" secondAttribute="centerX" id="zks-4v-I3N"/>
                         </constraints>
                     </view>
                     <connections>
