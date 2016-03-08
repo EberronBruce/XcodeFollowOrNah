@@ -12,6 +12,9 @@ import Social
 
 class DecideViewController: UIViewController {
     
+    //Connect label from storyboard to cod
+    @IBOutlet weak var friendLabel: UILabel!
+    //account property that is selected by the user
     var account : ACAccount?
 
     override func viewDidLoad() {
@@ -35,6 +38,19 @@ class DecideViewController: UIViewController {
             //If no error do this
             if error == nil {
                 print("Roll Tide")
+                //Can throw an error
+                do {
+                    //Get the JSON information from the API and Store it in a dictonary
+                    let responseJSONDictonary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as! [String : AnyObject]
+                    //print(responseJSONDictonary)
+                    let friendCount = responseJSONDictonary["friends_count"] as! Int
+                    print(friendCount)
+                    
+                    self.friendLabel.text = "You are following \(friendCount) accounts"
+                } catch {
+                    
+                }
+                
                 
             } else { //If an error happens
                 print("We got a problem")

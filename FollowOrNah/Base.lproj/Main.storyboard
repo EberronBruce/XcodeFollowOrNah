@@ -94,15 +94,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are following 300 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-ur-iZN">
-                                <rect key="frame" x="99" y="67" width="222" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are following 300 people" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-ur-iZN">
+                                <rect key="frame" x="189" y="164" width="222" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FH8-ur-iZN" firstAttribute="centerX" secondItem="CMu-IK-cqc" secondAttribute="centerX" id="T6N-ql-Jzg"/>
+                            <constraint firstItem="FH8-ur-iZN" firstAttribute="top" secondItem="Q0m-eo-xmX" secondAttribute="bottom" constant="100" id="fWJ-Gu-gQ3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="friendLabel" destination="FH8-ur-iZN" id="Nb9-qT-BXc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlc-MA-XlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
