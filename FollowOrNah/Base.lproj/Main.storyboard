@@ -117,10 +117,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efQ-jT-a8H">
                                 <rect key="frame" x="70" y="459" width="60" height="30"/>
                                 <state key="normal" title="Unfollow"/>
+                                <connections>
+                                    <action selector="unfollowTapped:" destination="3zb-IU-Rw0" eventType="touchUpInside" id="Yv2-79-Nmr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-gR-2QU">
                                 <rect key="frame" x="426" y="459" width="104" height="30"/>
                                 <state key="normal" title="Keep Following"/>
+                                <connections>
+                                    <action selector="keepFollowingTapped:" destination="3zb-IU-Rw0" eventType="touchUpInside" id="1cd-mE-YGq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,6 +145,8 @@
                     </view>
                     <connections>
                         <outlet property="friendLabel" destination="FH8-ur-iZN" id="Nb9-qT-BXc"/>
+                        <outlet property="imageView" destination="JLm-ZA-GHK" id="Jke-tA-SfK"/>
+                        <outlet property="usernameLabel" destination="ltt-4r-6Gf" id="ydg-GV-wK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlc-MA-XlG" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,10 @@ class DecideViewController: UIViewController {
     
     //Connect label from storyboard to cod
     @IBOutlet weak var friendLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    
     //account property that is selected by the user
     var account : ACAccount?
     var twitterUsers  = [TwitterUser]()
@@ -25,6 +29,27 @@ class DecideViewController: UIViewController {
         
         getFollowingCount()
         getFriends()
+    }
+    
+    func showTopUser() {
+        let user = self.twitterUsers.first!
+        self.usernameLabel.text = user.name
+        
+        //This takes the image url and gets the image and saves it
+        NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: user.imageUrl)!) { (data :NSData?, response :NSURLResponse?, error :NSError?) -> Void in
+            //Deals with the thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let image = UIImage(data: data!)
+                self.imageView.image = image
+            })
+        }.resume()
+        
+    }
+    
+    @IBAction func unfollowTapped(sender: AnyObject) {
+    }
+    
+    @IBAction func keepFollowingTapped(sender: AnyObject) {
     }
     
     //function used to get the Twitter Following accoung
@@ -135,11 +160,14 @@ class DecideViewController: UIViewController {
                         let userDictonary = user as! [String : AnyObject]
                         let twitterUser = TwitterUser()
                         twitterUser.name = userDictonary["name"] as! String
-                        twitterUser.imageUrl = userDictonary["profile_image_url"] as! String
+                        twitterUser.imageUrl = userDictonary["profile_image_url_https"] as! String
                         self.twitterUsers.append(twitterUser)
                         
                     }
                     
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.showTopUser()
+                    })
 
                 } catch {
                     
